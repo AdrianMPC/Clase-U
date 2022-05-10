@@ -19,20 +19,11 @@ public:
 	{
 		return vectorAlumno[pos];
 	}
-	int rows()/*Tamaño actual del vector*/
+	int rows()/*TamaÃ±o actual del vector*/
 	{
 		return vectorAlumno.size();
 	}
-	Alumno buscarPorCodigo(int codigo)
-	{
-		for (Alumno x : vectorAlumno)
-		{
-			if (codigo == x.getCodigo())
-			{
-				return x;
-			}
-		}
-	}
+	
 	int getPostArray(Alumno obj)
 	{
 		for (unsigned int i = 0; i < vectorAlumno.size(); i++)
@@ -44,6 +35,33 @@ public:
 				elemento dentro del vector*/
 			}
 		}
+	}
+	
+	Alumno buscarPorCodigo(int codigo)
+	{
+		for (Alumno x:vectorAlumno)
+		{
+			if (codigo == x.getCodigo())
+			{
+				return x;
+			}
+		}
+	}
+	
+	int getPosArray(Alumno Obj)
+	{
+		for(int i = 0;i<rows();i++)
+		{
+			if(Obj.getCodigo() == get(i).getCodigo())
+			{
+				return i;
+			}
+			return -1;
+		}
+	}
+	void remove(Alumno Obj)
+	{
+		vectorAlumno.erase(vectorAlumno.begin()+getPosArray(Obj));
 	}
 	
 };
